@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Glaucoma Detection System</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  
+</head>
+<body>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scrollProgress"></div>
+  </div>
+
+  <!-- Floating Orbs -->
+  <div class="orbs" id="orbs"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        GlaucoScan
+      </div>
+      <a href="#prediction" class="nav-btn">
+        <i class="fas fa-microscope"></i>
+        Start Analysis
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge fade-up">
+            <i class="fas fa-award"></i>
+            95% Accuracy Achievement
+          </div>
+          <h1 class="hero-title fade-up stagger-1">
+            Advanced Glaucoma Detection System
+          </h1>
+          <p class="hero-desc fade-up stagger-2">
+            Revolutionary machine learning approach combining Random Forest, Logistic Regression, 
+            and Decision Tree algorithms to detect glaucoma with unprecedented accuracy. 
+            Early detection saves vision.
+          </p>
+          <div class="hero-actions fade-up stagger-3">
+            <a href="#prediction" class="btn btn-primary">
+              <i class="fas fa-play-circle"></i>
+              Start Detection
+            </a>
+            <a href="https://glaucoma.org/understanding-glaucoma" target="_blank" class="btn btn-secondary">
+              <i class="fas fa-info-circle"></i>
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual fade-up stagger-2">
+          <div class="visual-card">
+            <div class="visual-content">
+              <div class="visual-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3 class="visual-title">Retinal Analysis</h3>
+              <p class="visual-subtitle">Advanced ML Processing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card fade-up">
+          <div class="stat-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Model Accuracy</div>
+        </div>
+        <div class="stat-card fade-up stagger-1">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-number">80M+</div>
+          <div class="stat-label">People Affected Globally</div>
+        </div>
+        <div class="stat-card fade-up stagger-2">
+          <div class="stat-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="stat-number">3</div>
+          <div class="stat-label">ML Algorithms Combined</div>
+        </div>
+        <div class="stat-card fade-up stagger-3">
+          <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+        </div>
+          <div class="stat-number">&lt;2s</div>
+          <div class="stat-label">Analysis Time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prediction Section -->
+  <section class="prediction" id="prediction">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title fade-up">Advanced Glaucoma Detection</h2>
+        <p class="section-subtitle fade-up stagger-1">
+          Upload a retinal fundus image and our advanced machine learning system will analyze it 
+          for signs of glaucoma using multiple algorithms for maximum accuracy.
+        </p>
+      </div>
+
+      <button class="predict-trigger fade-up stagger-2" id="predictTrigger">
+        <i class="fas fa-microscope"></i>
+        Start Analysis
+      </button>
+
+      <!-- Prediction Form -->
+      <div class="prediction-form" id="predictionForm">
+        <form id="glaucomaForm">
+          <div class="form-group">
+            <label class="form-label">
+              <i class="fas fa-image"></i>
+              Upload Retinal Fundus Image
+            </label>
+            <div class="file-drop-zone" id="dropZone">
+              <input type="file" class="file-input" id="imageInput" accept="image/*" required>
+              <div class="drop-content">
+                <div class="drop-icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="drop-text">
+                  <strong>Click to upload</strong> or drag and drop<br>
+                  <small>PNG, JPG, JPEG up to 10MB</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-section">
+            <img class="preview-image" id="previewImage" alt="Preview" style="display: none;">
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <i class="fas fa-cog"></i>
+              Analyze Image
+            </button>
+          </div>
+
+          <div class="result-card" id="resultCard" style="display: none;">
+            <div id="resultContent"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section style="padding: 8rem 0; background: var(--surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title fade-up">Why Choose GlaucoScan?</h2>
+        <p class="section-subtitle fade-up stagger-1">
+          Our advanced AI system combines multiple machine learning algorithms for superior accuracy and reliability.
+        </p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card fade-up">
+          <div class="stat-icon" style="background: linear-gradient(135deg, var(--success), #059669);">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem; font-size: 1.25rem;">Advanced AI</h3>
+          <p style="color: var(--text-secondary);">Combining Random Forest, Logistic Regression, and Decision Tree algorithms for comprehensive analysis.</p>
+        </div>
+        
+        <div class="stat-card fade-up stagger-1">
+          <div class="stat-icon" style="background: linear-gradient(135deg, var(--warning), #d97706);">
+            <i class="fas fa-lightning-bolt"></i>
+          </div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem; font-size: 1.25rem;">Fast Results</h3>
+          <p style="color: var(--text-secondary);">Get instant analysis results in under 2 seconds with detailed confidence scores.</p>
+        </div>
+        
+        <div class="stat-card fade-up stagger-2">
+          <div class="stat-icon" style="background: linear-gradient(135deg, var(--accent), #0891b2);">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 1rem; font-size: 1.25rem;">Secure & Private</h3>
+          <p style="color: var(--text-secondary);">Your medical images are processed locally and never stored on our servers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); margin-top: 4rem;">
+    <div class="container">
+      <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="logo-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        GlaucoScan
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        Advanced AI-powered glaucoma detection for early intervention and vision preservation.
+      </p>
+      <p style="color: var(--text-muted); font-size: 0.875rem;">
+        <i class="fas fa-exclamation-triangle"></i>
+        This tool is based on ML algorithms. Please consult with healthcare professionals for medical diagnosis.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
